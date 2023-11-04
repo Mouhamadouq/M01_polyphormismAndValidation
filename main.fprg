@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="taphi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-11-04 11:10:58 AM"/>
+        <attribute name="created" value="dGFwaGk7REVTS1RPUC1DRThQUDZGOzIwMjMtMTEtMDM7MTE6MzU6MjQgUE07Mjg2NQ=="/>
+        <attribute name="edited" value="dGFwaGk7REVTS1RPUC1DRThQUDZGOzIwMjMtMTEtMDQ7MTE6MTA6NTggQU07MTsyOTU5"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <call expression="doubleroman()"/>
+        </body>
+    </function>
+    <function name="doubleroman" type="String" variable="roman">
+        <parameters/>
+        <body>
+            <declare name="roman" type="String" array="False" size=""/>
+            <declare name="N" type="Integer" array="False" size=""/>
+            <declare name="num" type="Integer" array="False" size=""/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <assign variable="num" expression="0"/>
+            <output expression="&quot;Please enter a number to convert: &quot;" newline="True"/>
+            <input variable="N"/>
+            <if expression="N &gt;= 1000">
+                <then>
+                    <assign variable="num" expression="N / 1000"/>
+                    <assign variable="roman" expression="&quot;M&quot;"/>
+                    <for variable="i" start="0" end="num" direction="inc" step="1">
+                        <output expression="roman" newline="True"/>
+                    </for>
+                </then>
+                <else>
+                    <output expression="&quot;Number is less than 1000&quot;" newline="True"/>
+                </else>
+            </if>
+            <if expression="N &gt;= 500">
+                <then>
+                    <assign variable="num" expression="N / 500"/>
+                    <assign variable="roman" expression="&quot;D&quot;"/>
+                    <for variable="i" start="0" end="num" direction="inc" step="1">
+                        <output expression="roman" newline="True"/>
+                    </for>
+                </then>
+                <else/>
+            </if>
+        </body>
+    </function>
+    <function name="romandecimal" type="Integer" variable="N">
+        <parameters/>
+        <body>
+            <declare name="str" type="String" array="False" size=""/>
+            <declare name="N" type="Integer" array="False" size=""/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="rom" type="String" array="True" size="3"/>
+            <while expression="i &lt; 3">
+                <output expression="&quot;Enter the roman num: &quot;" newline="True"/>
+                <input variable="rom[i]"/>
+            </while>
+            <output expression="&quot;Enter the roman Numeral: &quot;" newline="True"/>
+            <input variable="str"/>
+            <for variable="i" start="0" end="len(str)" direction="inc" step="1">
+                <if expression="str[i] = rom[i]">
+                    <then>
+                        <assign variable="rom[i]" expression="N"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+        </body>
+    </function>
+</flowgorithm>
